@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="NF WALLS">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#0a4fb4">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" sizes="180x180" href="icon-180.png">
+<link rel="apple-touch-icon" sizes="167x167" href="icon-167.png">
+<link rel="apple-touch-icon" sizes="152x152" href="icon-152.png">
+<link rel="icon" sizes="192x192" href="icon-192.png">
+<title>NF WALLS · AMLI Mueller V (West)</title>
+<style>
+:root{--nf:#0a4fb4;--nf2:#1a73e8;--nfd:#073a85;--bg:#eef4fc;--card:#ffffff;--line:#c9d9ef;--txt:#14233a;--muted:#4a5d78;--ok:#0e7490;--flag:#0b5cad;--soft:#e3eefc;}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:16px;line-height:1.35;overscroll-behavior-y:contain}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;margin:0;cursor:pointer}
+.hdr{position:sticky;top:0;z-index:20;background:var(--nf);color:#fff;padding:env(safe-area-inset-top,0) 0 0 0;box-shadow:0 2px 6px rgba(7,58,133,.35)}
+.hdr .row{display:flex;align-items:center;gap:8px;padding:10px 12px;min-height:56px}
+.hdr .logo{flex:0 0 auto;height:38px;width:38px;display:block;background:#fff;border-radius:9px;padding:3px}
+.hdr .back{flex:0 0 auto;display:flex;align-items:center;gap:4px;background:rgba(255,255,255,.18);border-radius:10px;padding:10px 12px;font-weight:600;min-height:44px}
+.hdr .ttl{flex:1 1 auto;min-width:0}
+.hdr .updbar{display:flex;justify-content:flex-end;padding:4px 12px 0}
+.hdr .upd{border:1.5px solid #fff;border-radius:6px;padding:1px 8px;font-size:11px;line-height:1.35;font-weight:700;letter-spacing:.3px;white-space:nowrap;background:rgba(255,255,255,.14)}
+.hdr .upd i{font-style:normal;font-weight:400;margin-left:4px}
+.hdr .ttl .t1{font-weight:700;font-size:17px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hdr .ttl .t2{font-size:12.5px;opacity:.9;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hdr .stripe{height:5px;width:100%;background:var(--nf2)}
+.wrap{padding:12px 12px 90px 12px;max-width:760px;margin:0 auto}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;margin:0 0 12px 0}
+.card h2{font-size:15px;margin:0 0 8px 0;color:var(--nf);text-transform:uppercase;letter-spacing:.03em}
+.card h2 small{display:block;font-weight:500;text-transform:none;letter-spacing:0;color:var(--muted);font-size:12.5px}
+.title-card{background:var(--nf);color:#fff;border:0}
+.title-card .big{font-size:21px;font-weight:800;line-height:1.2}
+.title-card .sub{font-size:13.5px;opacity:.95;margin-top:6px}
+.title-card .meta{font-size:12px;opacity:.85;margin-top:8px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.sbtn{display:flex;flex-direction:column;align-items:flex-start;gap:4px;background:#fff;border:2px solid var(--line);border-left:8px solid var(--nf2);border-radius:12px;padding:12px;min-height:104px;text-align:left;box-shadow:0 1px 2px rgba(7,58,133,.08)}
+.sbtn:active{background:var(--soft)}
+.sbtn .ic{font-size:24px;font-weight:800;color:var(--nf);line-height:1}
+.sbtn .n{font-weight:800;font-size:17px;color:var(--nfd)}
+.sbtn .b{font-size:12px;color:var(--muted)}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--nf2);color:#fff;border-radius:12px;padding:13px 14px;font-weight:700;min-height:48px;width:100%;text-align:center}
+.btn.sec{background:#fff;color:var(--nf);border:2px solid var(--nf2)}
+.btn:active{filter:brightness(.92)}
+.viewer{position:relative;width:100%;height:58vh;min-height:300px;background:#dbe6f5;border:1px solid var(--line);border-radius:12px;overflow:hidden;touch-action:none;user-select:none}
+.viewer.tall{height:88vh !important}
+.viewer img{position:absolute;left:0;top:0;transform-origin:0 0;will-change:transform;user-select:none;-webkit-user-drag:none;pointer-events:none;max-width:none}
+.viewer .tapwrap{position:absolute;left:0;top:0;transform-origin:0 0;pointer-events:none}
+.viewer .ctl{position:absolute;right:8px;bottom:8px;display:flex;gap:6px;z-index:5}
+.viewer .ctl button{width:44px;height:44px;border-radius:10px;background:var(--nf);color:#fff;font-size:20px;font-weight:700;box-shadow:0 1px 4px rgba(7,58,133,.4)}
+.viewer .ctl button.wide{width:auto;padding:0 12px;font-size:13px}
+.viewer .loading{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#243b5a;font-weight:600;background:#dbe6f5}
+.tabs{display:flex;gap:6px;margin:0 0 8px 0;flex-wrap:wrap}
+.tab{flex:1 1 auto;min-height:40px;border-radius:10px;border:2px solid var(--nf2);color:var(--nf);font-weight:700;padding:6px 10px;background:#fff}
+.tab.on{background:var(--nf2);color:#fff}
+.item{display:flex;gap:10px;background:#fff;border:1px solid var(--line);border-left:8px solid var(--nf2);border-radius:12px;padding:10px;margin:0 0 10px 0;box-shadow:0 1px 2px rgba(7,58,133,.06);width:100%;text-align:left}
+.item:active{background:var(--soft)}
+.item .body{flex:1 1 auto;min-width:0}
+.item .id{font-weight:800;font-size:16px;color:var(--nfd)}
+.item .nm{font-size:13px;color:var(--muted);margin-top:1px}
+.item .rev{display:inline-block;margin-top:6px;font-size:12px;font-weight:700;color:var(--nf);background:var(--soft);border:1px solid var(--line);border-radius:999px;padding:2px 9px}
+.item .rev.flag{background:var(--nf);color:#fff;border-color:var(--nf)}
+.item .go{flex:0 0 auto;align-self:center;font-size:22px;color:var(--nf2);font-weight:800}
+.fam{font-size:13px;font-weight:800;color:var(--nf);margin:14px 2px 6px 2px;text-transform:uppercase;letter-spacing:.03em}
+.fam:first-child{margin-top:0}
+.nav2{display:flex;gap:10px;margin-top:4px}
+.nav2 .btn{flex:1 1 0}
+.hint{font-size:12.5px;color:var(--muted);margin:8px 2px 0 2px}
+.meta2{font-size:12.5px;color:var(--muted);margin:2px 0 8px 0;word-break:break-word}
+.pend{display:flex;gap:8px;align-items:flex-start;padding:8px 10px;border:2px dashed var(--nf2);border-radius:10px;margin:0 0 8px 0;background:var(--soft)}
+.pend b{color:var(--nfd)}
+.pend span.es{display:block;color:var(--muted);font-size:12.5px}
+.tag{flex:0 0 auto;font-size:11px;font-weight:800;color:#fff;background:var(--nf);border-radius:6px;padding:2px 7px;margin-top:1px}
+.foot{font-size:11.5px;color:var(--muted);text-align:center;margin:12px 0 0 0}
+.bottombar{position:fixed;left:0;right:0;bottom:0;z-index:25;background:#fff;border-top:1px solid var(--line);display:flex;padding:6px 8px calc(6px + env(safe-area-inset-bottom,0)) 8px;gap:4px}
+.bottombar button{flex:1 1 0;min-height:48px;border-radius:10px;font-weight:700;font-size:12.5px;color:var(--nf);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px}
+.bottombar button.on{background:var(--soft)}
+.bottombar button span{font-size:10.5px;font-weight:500;color:var(--muted)}
+@media (min-width:640px){.grid{grid-template-columns:1fr 1fr 1fr 1fr}}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<div class="bottombar" id="bottombar">
+  <button id="bb-home" onclick="go('#home')">Home<span>Inicio</span></button>
+  <button id="bb-cl" onclick="go('#sec--cl')">Control<span>Líneas</span></button>
+  <button id="bb-lay" onclick="go('#sec--lay')">Layouts<span>Layouts</span></button>
+  <button id="bb-sw" onclick="go('#sec--sw')">Shear<span>Shear walls</span></button>
+  <button id="bb-str" onclick="go('#sec--str')">Straps<span>Straps</span></button>
+</div>
+<script>
+const DATA={"upd": {"n": 1, "date": "Nov 6, 2026"}, "sections": [{"id": "cl", "t": "Control Lines", "es": "Líneas de control", "icon": "┼", "sub": "Overall control lines. Measurements: use the overall sheet; unit-level control lines are pending (see Pending).", "sub_es": "Líneas de control overall. Medidas: usa la hoja overall; las de unidades están pendientes (ver Pendiente).", "items": [{"id": "cl3", "t": "3rd Level – Control Lines (Overall)", "es": "Nivel 3 – Líneas de control (Overall)", "rev": "W-3-10-2026", "src": "Control Lines (W-3-10-2026).pdf", "imgs": [["Overall", "cl_W3"]], "note": "Title block: Mueller Phase V West Building, 3rd level.", "note_es": "Cajetín: Mueller Phase V West Building, nivel 3."}]}, {"id": "lay", "t": "Layouts", "es": "Layouts", "icon": "▦", "sub": "Overall and units (Areas A–D), newest level first. Latest revision only.", "sub_es": "Overall y unidades (Áreas A–D), nivel más nuevo primero. Solo la revisión más reciente.", "items": [{"g": "5th Level", "g_es": "Nivel 5", "id": "l5o", "t": "5th Level – Layout (Overall)", "es": "Nivel 5 – Layout (Overall)", "rev": "IFC 9.29.26", "src": "Mueller_V_West_5th_Floor_Layout_Overall_IFC_9_29_26.pdf", "imgs": [["Overall", "L5_overall"]], "note": "Overall: door and window schedules on the left of the sheet.", "note_es": "Overall: tablas de puertas y ventanas a la izquierda de la hoja."}, {"g": "4th Level", "g_es": "Nivel 4", "id": "l4o", "t": "4th Level – Layout (Overall)", "es": "Nivel 4 – Layout (Overall)", "rev": "Rev. 1 · 8.7.26", "src": "Mueller V (West) - 4th Floor - Layout (Overall) - Rev. 1 - 8.7.26.pdf", "imgs": [["Overall", "L4_overall"]], "note": "Overall: door and window schedules on the left of the sheet.", "note_es": "Overall: tablas de puertas y ventanas a la izquierda de la hoja."}, {"g": "4th Level", "g_es": "Nivel 4", "id": "l4u", "t": "4th Level – Layout (Units, Areas A–D)", "es": "Nivel 4 – Layout (Unidades, Áreas A–D)", "rev": "Rev. 1 · 8.7.26", "src": "Mueller V (West) - 4th Floor - Layout (Area A..D) - Rev. 1 - 8.7.26.pdf", "imgs": [["Area A", "L4_A"], ["Area B", "L4_B"], ["Area C", "L4_C"], ["Area D", "L4_D"]], "note": "One sheet per area, same revision.", "note_es": "Una hoja por área, misma revisión."}, {"g": "3rd Level", "g_es": "Nivel 3", "id": "l3o", "t": "3rd Level – Layout (Overall)", "es": "Nivel 3 – Layout (Overall)", "rev": "Rev. 1 · 6/22/26", "src": "Mueller_V_West_3rd_Floor_Layout_Overall_Rev_1_6_22_26.pdf", "imgs": [["Overall", "L3_overall"]], "note": "", "note_es": ""}, {"g": "3rd Level", "g_es": "Nivel 3", "id": "l3u", "t": "3rd Level – Layout (Units, Areas A–D)", "es": "Nivel 3 – Layout (Unidades, Áreas A–D)", "rev": "PRELIMINARY · 3/1/26", "src": "AMLI_Mueller_V_West_3rd_Floor_Layout_Area_A..D_Preliminary_3_1_26.pdf", "imgs": [["Area A", "L3_A"], ["Area B", "L3_B"], ["Area C", "L3_C"], ["Area D", "L3_D"]], "note": "PRELIMINARY – no newer area sheets found. Confirm with the panel designer before using.", "note_es": "PRELIMINAR – no se encontraron hojas de áreas más nuevas. Confirma con el diseñador antes de usar.", "flag": true}]}, {"id": "sw", "t": "Shear Walls", "es": "Shear walls", "icon": "◧", "sub": "Standard notes (S0-2C Rev.2) and interior shear blocking Rev2 for levels 4, 5 and 6.", "sub_es": "Notas estándar (S0-2C Rev.2) y bloqueo de corte interior Rev2 de los niveles 4, 5 y 6.", "items": [{"id": "s02c", "t": "S0-2C – Standard Shearwall Notes & Schedules", "es": "S0-2C – Notas y tablas estándar de shear walls", "rev": "Rev.2", "src": "S0-2C-STANDARD-SHEARWALL-NOTES-AND-SCHEDULES-Rev.2.pdf", "imgs": [["S0-2C", "s02c_rev2"]], "note": "Wall types (W1, W3, W5…), sheathing and nailing schedules. Rev.2 replaces Rev.1.", "note_es": "Tipos de pared (W1, W3, W5…), tablas de sheathing y clavado. Rev.2 reemplaza a Rev.1."}, {"id": "sw4", "t": "4th Level – Shear Blocking, Interior (Rev2)", "es": "Nivel 4 – Bloqueo de corte interior (Rev2)", "rev": "Rev2 · 11/04/26", "src": "Shear Blocking Int. 4th Level - AMLI West - Rev2.pdf", "imgs": [["5A/5B", "sw4_5AB"], ["4D", "sw4_4D"], ["4C", "sw4_4C"], ["4B", "sw4_4B"], ["4A", "sw4_4A"], ["3C", "sw4_3C"], ["3B", "sw4_3B"], ["3A", "sw4_3A"]], "note": "Blocking marked in red = can be left out for plumbing (max 20% on W1/W3/W5 walls). Verify the 20% rule per level.", "note_es": "Bloqueo marcado en rojo = se puede omitir por plomería (máx. 20% en paredes W1/W3/W5). Verifica la regla del 20% por nivel."}, {"id": "sw5", "t": "5th Level – Shear Blocking, Interior (Rev2)", "es": "Nivel 5 – Bloqueo de corte interior (Rev2)", "rev": "Rev2 · 11/04/26", "src": "Shear Blocking Int. 5th Level - AMLI West - Rev2.pdf", "imgs": [["5A", "sw5_5A"], ["5B", "sw5_5B"], ["4D", "sw5_4D"], ["4C", "sw5_4C"], ["4B", "sw5_4B"], ["4A", "sw5_4A"], ["3C", "sw5_3C"], ["3B", "sw5_3B"], ["3A", "sw5_3A"]], "note": "Blocking marked in red = can be left out for plumbing (max 20% on W1/W3/W5 walls). Verify the 20% rule per level.", "note_es": "Bloqueo marcado en rojo = se puede omitir por plomería (máx. 20% en paredes W1/W3/W5). Verifica la regla del 20% por nivel."}, {"id": "sw6", "t": "6th Level – Shear Blocking, Interior (Rev2)", "es": "Nivel 6 – Bloqueo de corte interior (Rev2)", "rev": "Rev2 · 11/04/26", "src": "Shear Blocking Int. 6th Level - AMLI West - Rev2.pdf", "imgs": [["5A", "sw6_5A"], ["5B", "sw6_5B"], ["4D", "sw6_4D"], ["4C", "sw6_4C"], ["4B", "sw6_4B"], ["4A", "sw6_4A"], ["3C", "sw6_3C"], ["3B", "sw6_3B"], ["3A", "sw6_3A"]], "note": "Blocking marked in red = can be left out for plumbing (max 20% on W1/W3/W5 walls). Verify the 20% rule per level.", "note_es": "Bloqueo marcado en rojo = se puede omitir por plomería (máx. 20% en paredes W1/W3/W5). Verifica la regla del 20% por nivel."}]}, {"id": "str", "t": "Straps", "es": "Straps (FTAO)", "icon": "≡", "sub": "FTAO strap top & bottom of openings – windows.", "sub_es": "Straps FTAO arriba y abajo de aberturas – ventanas.", "items": [{"id": "str3", "t": "3rd Level – FTAO Window Straps", "es": "Nivel 3 – Straps FTAO en ventanas", "rev": "W-7-10-2026 · update 7.14.26", "src": "FTAO-WINDOW STRAPS (W-7-10-2026).pdf", "imgs": [["Plan", "straps_W7"]], "note": "Typical FTAO strapping detail is on the sheet (bottom right).", "note_es": "El detalle típico de straps FTAO está en la hoja (abajo a la derecha)."}]}], "pending": [["Control lines – units, and levels 4/5/6", "Líneas de control – unidades, y niveles 4/5/6"], ["6th Level layout (overall + areas)", "Layout nivel 6 (overall + áreas)"], ["5th Level layout – Areas A–D", "Layout nivel 5 – Áreas A–D"], ["Shear wall location plan – West", "Plano de ubicación de shear walls – West"], ["Straps for levels 4, 5 and 6", "Straps de los niveles 4, 5 y 6"]]};
+const SEC=Object.fromEntries(DATA.sections.map(s=>[s.id,s]));
+const ITEM={}; DATA.sections.forEach(s=>s.items.forEach(i=>{ITEM[i.id]=Object.assign({sec:s.id},i);}));
+function imgSrc(k){ return 'img/'+k+'.webp'; }
+function esc(s){ return String(s==null?'':s).replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m])); }
+function makeViewer(el, srcKey, opts){
+  opts=opts||{};
+  el.innerHTML='<div class="loading">Loading… / Cargando…</div>';
+  const img=document.createElement('img'); img.draggable=false;
+  const ov=document.createElement('div'); ov.className='tapwrap';
+  const ctl=document.createElement('div'); ctl.className='ctl';
+  ctl.innerHTML='<button class="wide" data-a="fit" title="Fit">FIT</button><button data-a="minus">−</button><button data-a="plus">+</button><button class="wide" data-a="tall">⤢</button>';
+  let scale=1,minS=1,tx=0,ty=0,iw=0,ih=0,cw=0,ch=0;
+  const CTRL_RESERVE=60; /* px reserved at the bottom of the viewer so the FIT/-/+/expand controls never sit on top of the sheet (table/notes); fit() treats this as outside the usable image area, and clamp() uses the same ch, so panning can never slide content under the controls either. */
+  const ptrs=new Map(); let pinch=null, lastTap=0, moved=0, downPt=null;
+  function apply(){ const t=`translate(${tx}px,${ty}px) scale(${scale})`; img.style.transform=t; ov.style.transform=t;
+    /* At fit scale there is nothing to pan (the whole image already fits), so let the browser
+       scroll the page normally (pan-y) instead of trapping the gesture. Only once the user has
+       actually zoomed in past fit do we take exclusive control (none) for pinch/pan. This is what
+       was behind the "zoom and scroll down" complaint: the viewer used to swallow every touch at
+       fit scale and do nothing with it. */
+    el.style.touchAction = (scale<=minS*1.01) ? 'pan-y' : 'none'; }
+  function clamp(){ const maxS=Math.max(minS*10,8); scale=Math.max(minS,Math.min(scale,maxS));
+    const w=iw*scale,h=ih*scale; tx=(w<=cw)?(cw-w)/2:Math.min(0,Math.max(cw-w,tx)); ty=(h<=ch)?(ch-h)/2:Math.min(0,Math.max(ch-h,ty)); }
+  function fit(){ cw=el.clientWidth; ch=Math.max(el.clientHeight-CTRL_RESERVE,120); minS=Math.min(cw/iw,ch/ih); scale=minS; clamp(); apply(); }
+  function zoomAt(f,x,y){ const ns=Math.max(minS,Math.min(scale*f,Math.max(minS*10,8))); const r=ns/scale; tx=x-(x-tx)*r; ty=y-(y-ty)*r; scale=ns; clamp(); apply(); }
+  img.onload=()=>{ iw=img.naturalWidth; ih=img.naturalHeight; el.innerHTML=''; el.appendChild(img);
+    if(opts.taps && opts.taps.length){ ov.style.width=iw+'px'; ov.style.height=ih+'px'; ov.innerHTML='';
+      opts.taps.forEach(t=>{ const b=document.createElement('button'); b.className='tap';
+        b.style.left=(t.x0*100)+'%'; b.style.top=(t.y0*100)+'%'; b.style.width=((t.x1-t.x0)*100)+'%'; b.style.height=((t.y1-t.y0)*100)+'%';
+        b.dataset.href=t.href; /* B1 fix: do NOT stop pointerdown here - the viewer must see every touch so pinch/pan work when the finger starts on a label. A real tap is detected in up(). This click handler only serves keyboard activation. */
+        b.addEventListener('click',e=>{ e.stopPropagation(); if(Date.now()-(window._navAt||0)>700) go(t.href); });
+        ov.appendChild(b); });
+      el.appendChild(ov); }
+    el.appendChild(ctl);
+    if(!el.classList.contains('tall')){ const cwid=el.clientWidth; el.style.height=Math.round(Math.min(Math.max(cwid*ih/iw,260),window.innerHeight*0.80))+'px'; }
+    fit();
+    if(opts.initial){ const z=opts.initial; scale=minS*z.scale; tx=-z.x*scale+cw/2; ty=-z.y*scale+ch/2; clamp(); apply(); } };
+  img.onerror=()=>{ el.innerHTML='<div class="loading">Image not available / Imagen no disponible</div>'; };
+  img.src=imgSrc(srcKey);
+  el.addEventListener('pointerdown',e=>{ try{ el.setPointerCapture(e.pointerId); }catch(err){} ptrs.set(e.pointerId,{x:e.clientX,y:e.clientY}); moved=0; downPt={x:e.clientX,y:e.clientY};
+    if(ptrs.size===2){ const a=[...ptrs.values()]; pinch={d:Math.hypot(a[0].x-a[1].x,a[0].y-a[1].y), mx:(a[0].x+a[1].x)/2, my:(a[0].y+a[1].y)/2}; e.preventDefault(); }
+    else if(scale>minS*1.01){ e.preventDefault(); } /* at fit scale, 1 finger: don't block it, let the page scroll */ });
+  el.addEventListener('pointermove',e=>{ if(!ptrs.has(e.pointerId)) return; const p=ptrs.get(e.pointerId); const r=el.getBoundingClientRect();
+    if(ptrs.size===1){ const dx=e.clientX-p.x, dy=e.clientY-p.y;
+      if(scale<=minS*1.01){ moved+=Math.abs(dx)+Math.abs(dy); p.x=e.clientX; p.y=e.clientY; return; } /* nothing to pan; let native scroll run */
+      tx+=dx; ty+=dy; moved+=Math.abs(dx)+Math.abs(dy); p.x=e.clientX; p.y=e.clientY; clamp(); apply(); e.preventDefault(); }
+    else if(ptrs.size===2 && pinch){ p.x=e.clientX; p.y=e.clientY; const a=[...ptrs.values()]; const d=Math.hypot(a[0].x-a[1].x,a[0].y-a[1].y); const mx=(a[0].x+a[1].x)/2, my=(a[0].y+a[1].y)/2;
+      zoomAt(d/pinch.d, mx-r.left, my-r.top); tx+=mx-pinch.mx; ty+=my-pinch.my; clamp(); apply(); pinch={d:d,mx:mx,my:my}; moved+=10; e.preventDefault(); } });
+  function up(e){ if(ptrs.has(e.pointerId)){ ptrs.delete(e.pointerId); if(ptrs.size<2) pinch=null;
+      if(ptrs.size===0 && moved<8 && downPt){ const now=Date.now(); const r=el.getBoundingClientRect();
+        if(e.type==='pointerup'){ const hit=document.elementsFromPoint(e.clientX,e.clientY).find(n=>n.classList&&n.classList.contains('tap')&&n.dataset&&n.dataset.href); if(hit){ window._navAt=Date.now(); lastTap=0; go(hit.dataset.href); return; } }
+        if(now-lastTap<320){ if(scale>minS*1.05){ fit(); } else { zoomAt(3, e.clientX-r.left, e.clientY-r.top); } lastTap=0; } else lastTap=now; } } }
+  el.addEventListener('pointerup',up); el.addEventListener('pointercancel',up);
+  el.addEventListener('wheel',e=>{ const r=el.getBoundingClientRect(); zoomAt(e.deltaY<0?1.2:1/1.2, e.clientX-r.left, e.clientY-r.top); e.preventDefault(); },{passive:false});
+  ctl.addEventListener('pointerdown',e=>e.stopPropagation());
+  ctl.addEventListener('click',e=>{ const b=e.target.closest('button'); if(!b) return; const a=b.dataset.a;
+    if(a==='fit') fit(); else if(a==='plus') zoomAt(1.5,cw/2,ch/2); else if(a==='minus') zoomAt(1/1.5,cw/2,ch/2);
+    else if(a==='tall'){ const on=el.classList.toggle('tall'); if(on){ el.style.height=''; } else { el.style.height=Math.round(Math.min(Math.max(el.clientWidth*ih/iw,260),window.innerHeight*0.80))+'px'; } const prev=scale/minS; fit(); if(prev>1.05){ zoomAt(prev,cw/2,ch/2);} el.scrollIntoView({block:'start',behavior:'smooth'}); } });
+  window.addEventListener('resize',()=>{ if(iw){ const prev=scale/minS; fit(); if(prev>1.05) zoomAt(prev,cw/2,ch/2);} });
+  return {fit};
+}
+function go(h){ if(location.hash===h) render(); else location.hash=h; }
+window.addEventListener('hashchange',()=>{ render(); window.scrollTo(0,0); });
+function parseRoute(){ const h=(location.hash||'#home').slice(1).split('--'); return {view:h[0]||'home',arg:h[1]||null,tab:parseInt(h[2]||'0',10)||0}; }
+function header(back,t1,t2){ const U=DATA.upd;
+  return `<div class="hdr"><div class="updbar"><div class="upd">UPDATE ${U.n}<i>· ${esc(U.date)}</i></div></div><div class="row"><img class="logo" src="header-mark.png" alt="NF">${back?`<button class="back" onclick="${back.fn}">◀ ${esc(back.label)}</button>`:''}<div class="ttl"><div class="t1">${t1}</div><div class="t2">${t2}</div></div></div><div class="stripe"></div></div>`; }
+function setBB(w){ for(const k of ['home','cl','lay','sw','str']){ const b=document.getElementById('bb-'+k); if(b) b.classList.toggle('on',k===w); } }
+function render(){ const r=parseRoute(), app=document.getElementById('app');
+  if(r.view==='sec'&&SEC[r.arg]) renderSec(app,SEC[r.arg]);
+  else if(r.view==='item'&&ITEM[r.arg]) renderItem(app,ITEM[r.arg],r.tab);
+  else renderHome(app); }
+function renderHome(app){ setBB('home');
+  const n=DATA.sections.reduce((a,s)=>a+s.items.length,0);
+  app.innerHTML=header(null,'NF WALLS','AMLI Mueller V (West) · Walls') + `<div class="wrap">
+  <div class="card title-card"><img src="header-logo.png" alt="National Framing" style="height:46px;width:auto;border-radius:8px;margin-bottom:10px;display:block"><div class="big">NF WALLS</div><div class="sub">AMLI Mueller V (West) – Control lines, layouts, shear walls and straps. Latest versions only.<br>Líneas de control, layouts, shear walls y straps. Solo las versiones más recientes.</div><div class="meta">${n} sheets · National Framing · ${esc(DATA.upd.date)}</div></div>
+  <div class="card"><h2>Sections <small>Secciones</small></h2><div class="grid">${DATA.sections.map(s=>`<button class="sbtn" onclick="go('#sec--${s.id}')"><span class="ic">${s.icon}</span><span class="n">${esc(s.t)}</span><span class="b">${esc(s.es)} · ${s.items.length} ${s.items.length>1?'sheets':'sheet'}</span></button>`).join('')}</div></div>
+  <div class="card"><h2>Pending <small>Pendiente – not in the app yet / todavía no está en la app</small></h2>${DATA.pending.map(p=>`<div class="pend"><span class="tag">PENDING</span><div><b>${esc(p[0])}</b><span class="es">${esc(p[1])}</span></div></div>`).join('')}</div>
+  <div class="foot">Phone app · works offline once opened / funciona sin internet después de abrirla.</div></div>`; }
+function itemCard(it){ return `<button class="item" onclick="go('#item--${it.id}')"><div class="body"><div class="id">${esc(it.t)}</div><div class="nm">${esc(it.es)}</div><span class="rev ${it.flag?'flag':''}">${esc(it.rev)}</span></div><span class="go">›</span></button>`; }
+function renderSec(app,s){ setBB(s.id);
+  let html='', last=null;
+  s.items.forEach(it=>{ if(it.g && it.g!==last){ html+=`<div class="fam">${esc(it.g)} · ${esc(it.g_es)}</div>`; last=it.g; } html+=itemCard(it); });
+  app.innerHTML=header({label:'Home',fn:"go('#home')"},esc(s.t),esc(s.es)) + `<div class="wrap"><div class="card"><h2>${esc(s.t)} <small>${esc(s.es)}</small></h2><div class="hint" style="margin:0">${esc(s.sub)}<br>${esc(s.sub_es)}</div></div>${html}</div>`; }
+function renderItem(app,it,tab){ const s=SEC[it.sec]; setBB(s.id);
+  const list=s.items, i=list.findIndex(x=>x.id===it.id), prev=list[i-1], next=list[i+1];
+  const imgs=it.imgs; tab=Math.min(Math.max(tab,0),imgs.length-1);
+  app.innerHTML=header({label:s.t,fn:`go('#sec--${s.id}')`},esc(it.t),esc(it.rev)) + `<div class="wrap">
+  <div class="card"><h2>${esc(it.t)} <small>${esc(it.es)}</small></h2>
+  <div class="meta2"><b>${esc(it.rev)}</b> · ${esc(it.src)}</div>
+  ${imgs.length>1?`<div class="tabs">${imgs.map((m,k)=>`<button class="tab ${k===tab?'on':''}" onclick="go('#item--${it.id}--${k}')">${esc(m[0])}</button>`).join('')}</div>`:''}
+  <div class="viewer" id="v"></div>
+  <div class="hint">Pinch to zoom, drag to move, double-tap to zoom, ⤢ for full height. / Pellizca para acercar, arrastra para mover, doble toque para acercar, ⤢ pantalla alta.</div>
+  ${it.note?`<div class="hint"><b>${esc(it.note)}</b><br>${esc(it.note_es)}</div>`:''}</div>
+  <div class="nav2">${prev?`<button class="btn sec" onclick="go('#item--${prev.id}')">‹ Prev</button>`:''}${next?`<button class="btn sec" onclick="go('#item--${next.id}')">Next ›</button>`:''}</div></div>`;
+  makeViewer(document.getElementById('v'),imgs[tab][1],{}); }
+render();
+</script>
+<script>
+if('serviceWorker' in navigator){ window.addEventListener('load',()=>{ navigator.serviceWorker.register('service-worker.js').then(reg=>{ reg.update&&reg.update(); }).catch(()=>{}); let r=false; navigator.serviceWorker.addEventListener('controllerchange',()=>{ if(r) return; r=true; if(window._nfHad) location.reload(); }); window._nfHad=!!navigator.serviceWorker.controller; }); }
+</script>
+</body>
+</html>
