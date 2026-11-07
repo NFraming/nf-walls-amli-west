@@ -95,6 +95,20 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;margin:0;cu
 .inst .steps .es{color:var(--muted);display:block;margin-bottom:6px}
 .inst .cp{margin-top:10px;width:100%;background:#fff;color:var(--nf);border:2px solid var(--nf2);border-radius:12px;padding:12px;font-weight:700;font-size:15px;min-height:46px;cursor:pointer}
 .inst .why{font-size:13px;color:var(--muted);margin-top:8px;text-align:center}
+
+.hbtn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;background:#fff;color:var(--nf);border:3px solid var(--nf);border-radius:14px;padding:13px 12px;font-size:17px;font-weight:800;min-height:54px;cursor:pointer;margin:0 0 12px 0}
+.hbtn small{display:block;font-size:12.5px;font-weight:600;color:var(--muted)}
+.hbtn:active{filter:brightness(.93)}
+.how .st{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px;margin:0 0 12px 0}
+.how .st .hd{display:flex;gap:10px;align-items:center;margin-bottom:6px}
+.how .st .num{flex:0 0 38px;height:38px;border-radius:50%;background:var(--nf);color:#fff;font-weight:800;font-size:20px;display:flex;align-items:center;justify-content:center}
+.how .st .t{font-weight:800;font-size:17px;color:var(--nfd);line-height:1.15}
+.how .st .t small{display:block;font-weight:600;font-size:13px;color:var(--muted)}
+.how .st p{margin:6px 0;font-size:14.5px;line-height:1.4;color:var(--txt)}
+.how .st p i{color:var(--muted)}
+.how .st img{display:block;width:100%;height:auto;border-radius:10px;border:1px solid var(--line);margin-top:8px}
+.how .air{background:var(--soft);border:2px dashed var(--nf2);border-radius:12px;padding:14px;text-align:center;margin-top:8px;font-weight:800;color:var(--nfd);font-size:16px}
+.how .air span{display:block;font-size:34px;line-height:1.1}
 </style>
 </head>
 <body>
@@ -178,12 +192,13 @@ function setBB(w){ for(const k of ['home','cl','lay','sw','str']){ const b=docum
 function render(){ const r=parseRoute(), app=document.getElementById('app');
   if(r.view==='sec'&&SEC[r.arg]) renderSec(app,SEC[r.arg]);
   else if(r.view==='item'&&ITEM[r.arg]) renderItem(app,ITEM[r.arg],r.tab);
+  else if(r.view==='how') renderHow(app);
   else renderHome(app); }
 function renderHome(app){ setBB('home');
   const n=DATA.sections.reduce((a,s)=>a+s.items.length,0);
   app.innerHTML=header(null,'NF WALLS','AMLI Mueller V (West) · Walls') + `<div class="wrap">
   <div class="card title-card"><img src="header-logo.png" alt="National Framing" style="height:46px;width:auto;border-radius:8px;margin-bottom:10px;display:block"><div class="big">NF WALLS</div><div class="sub">AMLI Mueller V (West) – Control lines, layouts, shear walls and straps. Latest versions only.<br>Líneas de control, layouts, shear walls y straps. Solo las versiones más recientes.</div><div class="meta">${n} sheets · National Framing · ${esc(DATA.upd.date)}</div></div>
-  ${installCard()}
+  ${installCard()}${howCard()}
   <div class="card"><h2>Sections <small>Secciones</small></h2><div class="grid">${DATA.sections.map(s=>`<button class="sbtn" onclick="go('#sec--${s.id}')"><span class="ic">${s.icon}</span><span class="n">${esc(s.t)}</span><span class="b">${esc(s.es)} · ${s.items.length} ${s.items.length>1?'sheets':'sheet'}</span></button>`).join('')}</div></div>
   <div class="card"><h2>Pending <small>Pendiente – not in the app yet / todavía no está en la app</small></h2>${DATA.pending.map(p=>`<div class="pend"><span class="tag">PENDING</span><div><b>${esc(p[0])}</b><span class="es">${esc(p[1])}</span></div></div>`).join('')}</div>
   <div class="foot">Phone app · works offline once opened / funciona sin internet después de abrirla.</div></div>`; }
@@ -231,6 +246,21 @@ function nfInstall(){
   }
   const s=document.getElementById('nfSteps'); if(!s) return;
   s.innerHTML=html+`<button class="cp" id="nfCp" onclick="nfCopy()">Copy link · Copiar enlace</button>`; s.classList.add('show'); s.scrollIntoView({behavior:'smooth',block:'nearest'}); }
+
+
+/* ---------- how it works ---------- */
+function howCard(){ return `<button class="hbtn" onclick="go('#how')"><span style="font-size:24px">❓</span><span>HOW IT WORKS<small>CÓMO FUNCIONA – 5 simple steps / 5 pasos</small></span></button>`; }
+function renderHow(app){ setBB('home');
+  const st=(n,en,es,pen,pes,img,extra)=>`<div class="st"><div class="hd"><div class="num">${n}</div><div class="t">${en}<small>${es}</small></div></div><p>${pen}</p><p><i>${pes}</i></p>${img?`<img src="img/${img}.webp" alt="${en}">`:''}${extra||''}</div>`;
+  app.innerHTML=header({label:'Home',fn:"go('#home')"},'How it works','Cómo funciona') + `<div class="wrap how">
+  <div class="card"><h2>5 simple steps <small>5 pasos simples</small></h2><div class="hint" style="margin:0">Red boxes show where to tap. / Los recuadros rojos muestran dónde tocar.</div></div>
+  ${st(1,'Install the app','Instala la app','Open the link in <b>Safari</b> (iPhone) or <b>Chrome</b> (Android) – not inside Telegram. Tap <b>DOWNLOAD APP</b> and follow the steps. The blue NF WALLS icon appears on your home screen.','Abre el enlace en <b>Safari</b> (iPhone) o <b>Chrome</b> (Android) – no dentro de Telegram. Toca <b>DESCARGAR APP</b> y sigue los pasos. El ícono azul NF WALLS aparece en tu pantalla de inicio.','how1')}
+  ${st(2,'Pick a section','Elige una sección','Control Lines, Layouts, Shear Walls or Straps.','Líneas de control, Layouts, Shear walls o Straps.','how2')}
+  ${st(3,'Tap a sheet','Toca una hoja','Each card shows the level and the <b>latest revision</b> only.','Cada tarjeta muestra el nivel y solo la <b>revisión más reciente</b>.','how3')}
+  ${st(4,'Zoom and move','Acerca y mueve','<b>Pinch</b> to zoom, <b>drag</b> to move, <b>double-tap</b> to zoom in. Use <b>FIT</b> to see the full sheet. Use the tabs when a sheet has several areas.','<b>Pellizca</b> para acercar, <b>arrastra</b> para mover, <b>doble toque</b> para acercar. <b>FIT</b> muestra la hoja completa. Usa las pestañas cuando hay varias áreas.','how4')}
+  ${st(5,'Use it with no signal','Úsala sin señal','Open the app <b>once with signal</b> and wait for Home. After that it works offline. Test: turn on airplane mode and open a sheet.','Abre la app <b>una vez con señal</b> y espera a que cargue Home. Después funciona sin internet. Prueba: activa modo avión y abre una hoja.',null,'<div class="air"><span>✈</span>Airplane mode ON – still works<br><small style="font-weight:600;color:var(--muted)">Modo avión – sigue funcionando</small></div>')}
+  <div class="card"><h2>PENDING <small>Pendiente</small></h2><div class="hint" style="margin:0">A card marked <b>PENDING</b> means that sheet is not in the app yet. / Una tarjeta <b>PENDING</b> significa que esa hoja todavía no está en la app.</div></div>
+  <button class="btn" onclick="go('#home')">◀ Home · Inicio</button></div>`; }
 
 render();
 </script>
