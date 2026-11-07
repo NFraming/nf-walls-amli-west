@@ -82,6 +82,19 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;margin:0;cu
 .bottombar button.on{background:var(--soft)}
 .bottombar button span{font-size:10.5px;font-weight:500;color:var(--muted)}
 @media (min-width:640px){.grid{grid-template-columns:1fr 1fr 1fr 1fr}}
+
+.inst{background:#fff;border:3px solid var(--nf);border-radius:16px;padding:14px;margin:12px 0}
+.inst .ibtn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;background:var(--nf);color:#fff;border:0;border-radius:14px;padding:16px 12px;font-size:19px;font-weight:800;min-height:58px;cursor:pointer}
+.inst .ibtn small{display:block;font-size:13px;font-weight:600;opacity:1}
+.inst .ibtn:active{filter:brightness(.9)}
+.inst .ok{background:var(--soft);color:var(--nfd);border:2px solid var(--nf2);border-radius:12px;padding:12px;font-weight:800;text-align:center}
+.inst .steps{display:none;margin-top:12px;background:var(--soft);border-radius:12px;padding:12px;color:var(--txt);font-size:15px;line-height:1.45}
+.inst .steps.show{display:block}
+.inst .steps b{color:var(--nfd)}
+.inst .steps ol{margin:6px 0 8px 20px;padding:0}
+.inst .steps .es{color:var(--muted);display:block;margin-bottom:6px}
+.inst .cp{margin-top:10px;width:100%;background:#fff;color:var(--nf);border:2px solid var(--nf2);border-radius:12px;padding:12px;font-weight:700;font-size:15px;min-height:46px;cursor:pointer}
+.inst .why{font-size:13px;color:var(--muted);margin-top:8px;text-align:center}
 </style>
 </head>
 <body>
@@ -170,6 +183,7 @@ function renderHome(app){ setBB('home');
   const n=DATA.sections.reduce((a,s)=>a+s.items.length,0);
   app.innerHTML=header(null,'NF WALLS','AMLI Mueller V (West) · Walls') + `<div class="wrap">
   <div class="card title-card"><img src="header-logo.png" alt="National Framing" style="height:46px;width:auto;border-radius:8px;margin-bottom:10px;display:block"><div class="big">NF WALLS</div><div class="sub">AMLI Mueller V (West) – Control lines, layouts, shear walls and straps. Latest versions only.<br>Líneas de control, layouts, shear walls y straps. Solo las versiones más recientes.</div><div class="meta">${n} sheets · National Framing · ${esc(DATA.upd.date)}</div></div>
+  ${installCard()}
   <div class="card"><h2>Sections <small>Secciones</small></h2><div class="grid">${DATA.sections.map(s=>`<button class="sbtn" onclick="go('#sec--${s.id}')"><span class="ic">${s.icon}</span><span class="n">${esc(s.t)}</span><span class="b">${esc(s.es)} · ${s.items.length} ${s.items.length>1?'sheets':'sheet'}</span></button>`).join('')}</div></div>
   <div class="card"><h2>Pending <small>Pendiente – not in the app yet / todavía no está en la app</small></h2>${DATA.pending.map(p=>`<div class="pend"><span class="tag">PENDING</span><div><b>${esc(p[0])}</b><span class="es">${esc(p[1])}</span></div></div>`).join('')}</div>
   <div class="foot">Phone app · works offline once opened / funciona sin internet después de abrirla.</div></div>`; }
@@ -190,6 +204,34 @@ function renderItem(app,it,tab){ const s=SEC[it.sec]; setBB(s.id);
   ${it.note?`<div class="hint"><b>${esc(it.note)}</b><br>${esc(it.note_es)}</div>`:''}</div>
   <div class="nav2">${prev?`<button class="btn sec" onclick="go('#item--${prev.id}')">‹ Prev</button>`:''}${next?`<button class="btn sec" onclick="go('#item--${next.id}')">Next ›</button>`:''}</div></div>`;
   makeViewer(document.getElementById('v'),imgs[tab][1],{}); }
+
+/* ---------- install button ---------- */
+window._nfDP=null;
+window.addEventListener('beforeinstallprompt',e=>{ e.preventDefault(); window._nfDP=e; });
+window.addEventListener('appinstalled',()=>{ window._nfDP=null; try{render();}catch(_){} });
+function nfStandalone(){ return (window.matchMedia&&matchMedia('(display-mode: standalone)').matches)||window.navigator.standalone===true; }
+function installCard(){
+  if(nfStandalone()) return `<div class="inst" id="nfInst"><div class="ok">✔ App installed · App instalada<br><span style="font-weight:600;font-size:13px">Works offline / Funciona sin internet</span></div></div>`;
+  return `<div class="inst" id="nfInst"><button class="ibtn" onclick="nfInstall()"><span style="font-size:26px">⬇</span><span>DOWNLOAD APP<small>DESCARGAR APP al teléfono</small></span></button>
+  <div class="steps" id="nfSteps"></div>
+  <div class="why">Saves everything on your phone to use with no signal. / Guarda todo en tu teléfono para usarlo sin señal.</div></div>`; }
+function nfCopy(){ const u=location.href.split('#')[0]; const done=()=>{ const b=document.getElementById('nfCp'); if(b) b.textContent='✔ Link copied · Enlace copiado'; };
+  if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(u).then(done).catch(()=>prompt('Copy / Copia:',u)); } else { prompt('Copy / Copia:',u); } }
+function nfInstall(){
+  if(window._nfDP){ const e=window._nfDP; window._nfDP=null; e.prompt(); e.userChoice.then(()=>{ try{render();}catch(_){} }).catch(()=>{}); return; }
+  const ua=navigator.userAgent||'', ios=/iPhone|iPad|iPod/.test(ua)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+  const safari=/Safari/.test(ua)&&!/CriOS|FxiOS|EdgiOS|Telegram|FBAN|FBAV|Instagram|Line\//.test(ua);
+  let html='';
+  if(ios){
+    html = safari
+     ? `<b>iPhone – 3 steps</b><span class="es">iPhone – 3 pasos</span><ol><li>Tap the <b>Share</b> button ⬆ (bottom of Safari).<br><i>Toca el botón <b>Compartir</b> ⬆ (abajo en Safari).</i></li><li>Scroll and tap <b>Add to Home Screen</b>.<br><i>Baja y toca <b>Agregar a pantalla de inicio</b>.</i></li><li>Tap <b>Add</b>. The blue NF WALLS icon appears on your home screen.<br><i>Toca <b>Agregar</b>. El ícono azul NF WALLS aparece en tu pantalla de inicio.</i></li></ol>`
+     : `<b>Open this link in Safari first</b><span class="es">Primero abre este enlace en Safari (no en Telegram)</span><ol><li>Tap <b>Copy link</b> below.<br><i>Toca <b>Copiar enlace</b>.</i></li><li>Open <b>Safari</b>, paste in the address bar, go.<br><i>Abre <b>Safari</b>, pega en la barra y entra.</i></li><li>Then tap <b>DOWNLOAD APP</b> again.<br><i>Luego toca <b>DESCARGAR APP</b> otra vez.</i></li></ol>`;
+  } else {
+    html = `<b>Android – 3 steps (use Chrome)</b><span class="es">Android – 3 pasos (usa Chrome)</span><ol><li>Open this link in <b>Chrome</b> (not inside Telegram). Tap <b>Copy link</b> if needed.<br><i>Abre este enlace en <b>Chrome</b> (no dentro de Telegram). Toca <b>Copiar enlace</b> si hace falta.</i></li><li>Tap the menu <b>⋮</b> (top right) → <b>Install app</b> or <b>Add to Home screen</b>.<br><i>Toca el menú <b>⋮</b> (arriba a la derecha) → <b>Instalar app</b> o <b>Agregar a pantalla de inicio</b>.</i></li><li>Tap <b>Install</b>. Look for the blue NF WALLS icon on your home screen / app drawer.<br><i>Toca <b>Instalar</b>. Busca el ícono azul NF WALLS en tu pantalla de inicio o cajón de apps.</i></li></ol>`;
+  }
+  const s=document.getElementById('nfSteps'); if(!s) return;
+  s.innerHTML=html+`<button class="cp" id="nfCp" onclick="nfCopy()">Copy link · Copiar enlace</button>`; s.classList.add('show'); s.scrollIntoView({behavior:'smooth',block:'nearest'}); }
+
 render();
 </script>
 <script>
