@@ -109,19 +109,69 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;margin:0;cu
 .how .st img{display:block;width:100%;height:auto;border-radius:10px;border:1px solid var(--line);margin-top:8px}
 .how .air{background:var(--soft);border:2px dashed var(--nf2);border-radius:12px;padding:14px;text-align:center;margin-top:8px;font-weight:800;color:var(--nfd);font-size:16px}
 .how .air span{display:block;font-size:34px;line-height:1.1}
+
+/* update 2 */
+.hdr .upd{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;min-height:30px;cursor:pointer;font-size:12px}
+.hdr .upd:active{background:rgba(255,255,255,.3)}
+.hdr .updbar{padding-bottom:2px}
+.vdot{display:inline-block;width:13px;height:13px;border-radius:50%;border:2px solid #fff;background:#facc15;flex:0 0 auto}
+.vdot.g{background:#22c55e}.vdot.r{background:#ef4444}
+.lvb{display:flex;align-items:center;gap:12px;width:100%;text-align:left;background:#fff;border:2px solid var(--line);border-left:8px solid var(--nf2);border-radius:14px;padding:10px 12px;margin:0 0 10px 0;min-height:70px;box-shadow:0 1px 2px rgba(7,58,133,.08)}
+.lvb:active{background:var(--soft)}
+.lvb .num{flex:0 0 52px;height:52px;border-radius:12px;background:var(--nf);color:#fff;font-weight:800;font-size:30px;display:flex;align-items:center;justify-content:center}
+.lvb .tx{flex:1 1 auto;min-width:0}
+.lvb .n{font-weight:800;font-size:17px;color:var(--nfd)}
+.lvb .b{font-size:12.5px;color:var(--muted)}
+.lvb .go{font-size:24px;color:var(--nf2);font-weight:800}
+.lvb.empty .num{background:#fff;color:var(--nf);border:2px dashed var(--nf2)}
+.typebar{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px}
+.typebar button{flex:1 1 auto;min-height:44px;border:2px solid var(--nf2);border-radius:10px;color:var(--nf);font-weight:700;background:#fff;padding:6px 10px;font-size:14px}
+.slot{background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px;margin:0 0 12px 0}
+.slot .sh{display:flex;align-items:center;gap:8px;margin:0 0 8px 0}
+.slot .s1{flex:1 1 auto;font-weight:800;font-size:16px;color:var(--nfd);line-height:1.15}
+.slot .s1 small{display:block;font-weight:600;font-size:12.5px;color:var(--muted)}
+.bdg{flex:0 0 auto;font-size:11px;font-weight:800;border-radius:999px;padding:3px 9px}
+.bdg.ok{background:var(--nf);color:#fff}
+.bdg.pe{background:#fff;color:var(--nf);border:2px dashed var(--nf2)}
+.lvit{border:1px solid var(--line);border-left:8px solid var(--nf2);border-radius:12px;margin:0 0 8px 0;background:#fff;overflow:hidden}
+.lvit .item{border:0;border-radius:0;margin:0;box-shadow:none;border-left:0}
+.lvit .all{display:inline-block;margin-top:6px;margin-left:6px;font-size:11.5px;font-weight:700;color:var(--nfd);background:#fff;border:1px solid var(--nf2);border-radius:999px;padding:2px 9px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;align-items:center;padding:0 10px 10px 10px}
+.chips span{flex:0 0 100%;font-size:12px;font-weight:700;color:var(--muted)}
+.chip{min-height:40px;min-width:48px;border-radius:10px;border:2px solid var(--nf2);color:var(--nf);font-weight:800;padding:4px 12px;background:#fff;font-size:14px}
+.chip:active{background:var(--soft)}
+.vstat{border:3px solid var(--nf);border-radius:16px;padding:14px;background:#fff;margin:0 0 12px 0}
+.vstat .big{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px;color:var(--nfd)}
+.vstat .big .vdot{width:22px;height:22px;border-width:3px;border-color:var(--nfd)}
+.vstat p{margin:8px 0 0 0;font-size:14px;color:var(--txt)}
+.vstat p i{color:var(--muted)}
+.vstat .ubtn{margin-top:12px;display:block;width:100%;background:var(--nf);color:#fff;border-radius:12px;padding:14px;font-weight:800;font-size:16px;min-height:52px}
+.vstat .ubtn:disabled{opacity:.7}
+.vkey{display:flex;flex-direction:column;gap:6px;margin-top:10px;font-size:13px;color:var(--txt)}
+.vkey div{display:flex;align-items:center;gap:8px}
+.vkey .vdot{border-color:var(--nfd)}
+.vrow{background:#fff;border:1px solid var(--line);border-left:8px solid var(--nf2);border-radius:12px;padding:10px;margin:0 0 10px 0}
+.vrow.cur{border-left-color:var(--nf);background:var(--soft)}
+.vrow .vh{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.vrow .vn{font-weight:800;font-size:16px;color:var(--nfd)}
+.vrow .vd{font-size:12.5px;color:var(--muted)}
+.vrow .me{font-size:11px;font-weight:800;color:#fff;background:var(--nf);border-radius:6px;padding:2px 7px}
+.vrow ul{margin:6px 0 0 18px;padding:0;font-size:13.5px}
+.vrow li i{color:var(--muted)}
 </style>
 </head>
 <body>
 <div id="app"></div>
 <div class="bottombar" id="bottombar">
   <button id="bb-home" onclick="go('#home')">Home<span>Inicio</span></button>
-  <button id="bb-cl" onclick="go('#sec--cl')">Control<span>Líneas</span></button>
-  <button id="bb-lay" onclick="go('#sec--lay')">Layouts<span>Layouts</span></button>
-  <button id="bb-sw" onclick="go('#sec--sw')">Shear<span>Shear walls</span></button>
-  <button id="bb-str" onclick="go('#sec--str')">Straps<span>Straps</span></button>
+  <button id="bb-l3" onclick="go('#lvl--3')">L3<span>Nivel 3</span></button>
+  <button id="bb-l4" onclick="go('#lvl--4')">L4<span>Nivel 4</span></button>
+  <button id="bb-l5" onclick="go('#lvl--5')">L5<span>Nivel 5</span></button>
+  <button id="bb-l6" onclick="go('#lvl--6')">L6<span>Nivel 6</span></button>
+  <button id="bb-l7" onclick="go('#lvl--7')">L7<span>Nivel 7</span></button>
 </div>
 <script>
-const DATA={"upd": {"n": 1, "date": "Nov 6, 2026"}, "sections": [{"id": "cl", "t": "Control Lines", "es": "Líneas de control", "icon": "┼", "sub": "Overall control lines. Measurements: use the overall sheet; unit-level control lines are pending (see Pending).", "sub_es": "Líneas de control overall. Medidas: usa la hoja overall; las de unidades están pendientes (ver Pendiente).", "items": [{"id": "cl3", "t": "3rd Level – Control Lines (Overall)", "es": "Nivel 3 – Líneas de control (Overall)", "rev": "W-3-10-2026", "src": "Control Lines (W-3-10-2026).pdf", "imgs": [["Overall", "cl_W3"]], "note": "Title block: Mueller Phase V West Building, 3rd level.", "note_es": "Cajetín: Mueller Phase V West Building, nivel 3."}]}, {"id": "lay", "t": "Layouts", "es": "Layouts", "icon": "▦", "sub": "Overall and units (Areas A–D), newest level first. Latest revision only.", "sub_es": "Overall y unidades (Áreas A–D), nivel más nuevo primero. Solo la revisión más reciente.", "items": [{"g": "5th Level", "g_es": "Nivel 5", "id": "l5o", "t": "5th Level – Layout (Overall)", "es": "Nivel 5 – Layout (Overall)", "rev": "IFC 9.29.26", "src": "Mueller_V_West_5th_Floor_Layout_Overall_IFC_9_29_26.pdf", "imgs": [["Overall", "L5_overall"]], "note": "Overall: door and window schedules on the left of the sheet.", "note_es": "Overall: tablas de puertas y ventanas a la izquierda de la hoja."}, {"g": "4th Level", "g_es": "Nivel 4", "id": "l4o", "t": "4th Level – Layout (Overall)", "es": "Nivel 4 – Layout (Overall)", "rev": "Rev. 1 · 8.7.26", "src": "Mueller V (West) - 4th Floor - Layout (Overall) - Rev. 1 - 8.7.26.pdf", "imgs": [["Overall", "L4_overall"]], "note": "Overall: door and window schedules on the left of the sheet.", "note_es": "Overall: tablas de puertas y ventanas a la izquierda de la hoja."}, {"g": "4th Level", "g_es": "Nivel 4", "id": "l4u", "t": "4th Level – Layout (Units, Areas A–D)", "es": "Nivel 4 – Layout (Unidades, Áreas A–D)", "rev": "Rev. 1 · 8.7.26", "src": "Mueller V (West) - 4th Floor - Layout (Area A..D) - Rev. 1 - 8.7.26.pdf", "imgs": [["Area A", "L4_A"], ["Area B", "L4_B"], ["Area C", "L4_C"], ["Area D", "L4_D"]], "note": "One sheet per area, same revision.", "note_es": "Una hoja por área, misma revisión."}, {"g": "3rd Level", "g_es": "Nivel 3", "id": "l3o", "t": "3rd Level – Layout (Overall)", "es": "Nivel 3 – Layout (Overall)", "rev": "Rev. 1 · 6/22/26", "src": "Mueller_V_West_3rd_Floor_Layout_Overall_Rev_1_6_22_26.pdf", "imgs": [["Overall", "L3_overall"]], "note": "", "note_es": ""}, {"g": "3rd Level", "g_es": "Nivel 3", "id": "l3u", "t": "3rd Level – Layout (Units, Areas A–D)", "es": "Nivel 3 – Layout (Unidades, Áreas A–D)", "rev": "PRELIMINARY · 3/1/26", "src": "AMLI_Mueller_V_West_3rd_Floor_Layout_Area_A..D_Preliminary_3_1_26.pdf", "imgs": [["Area A", "L3_A"], ["Area B", "L3_B"], ["Area C", "L3_C"], ["Area D", "L3_D"]], "note": "PRELIMINARY – no newer area sheets found. Confirm with the panel designer before using.", "note_es": "PRELIMINAR – no se encontraron hojas de áreas más nuevas. Confirma con el diseñador antes de usar.", "flag": true}]}, {"id": "sw", "t": "Shear Walls", "es": "Shear walls", "icon": "◧", "sub": "Standard notes (S0-2C Rev.2) and interior shear blocking Rev2 for levels 4, 5 and 6.", "sub_es": "Notas estándar (S0-2C Rev.2) y bloqueo de corte interior Rev2 de los niveles 4, 5 y 6.", "items": [{"id": "s02c", "t": "S0-2C – Standard Shearwall Notes & Schedules", "es": "S0-2C – Notas y tablas estándar de shear walls", "rev": "Rev.2", "src": "S0-2C-STANDARD-SHEARWALL-NOTES-AND-SCHEDULES-Rev.2.pdf", "imgs": [["S0-2C", "s02c_rev2"]], "note": "Wall types (W1, W3, W5…), sheathing and nailing schedules. Rev.2 replaces Rev.1.", "note_es": "Tipos de pared (W1, W3, W5…), tablas de sheathing y clavado. Rev.2 reemplaza a Rev.1."}, {"id": "sw4", "t": "4th Level – Shear Blocking, Interior (Rev2)", "es": "Nivel 4 – Bloqueo de corte interior (Rev2)", "rev": "Rev2 · 11/04/26", "src": "Shear Blocking Int. 4th Level - AMLI West - Rev2.pdf", "imgs": [["5A/5B", "sw4_5AB"], ["4D", "sw4_4D"], ["4C", "sw4_4C"], ["4B", "sw4_4B"], ["4A", "sw4_4A"], ["3C", "sw4_3C"], ["3B", "sw4_3B"], ["3A", "sw4_3A"]], "note": "Blocking marked in red = can be left out for plumbing (max 20% on W1/W3/W5 walls). Verify the 20% rule per level.", "note_es": "Bloqueo marcado en rojo = se puede omitir por plomería (máx. 20% en paredes W1/W3/W5). Verifica la regla del 20% por nivel."}, {"id": "sw5", "t": "5th Level – Shear Blocking, Interior (Rev2)", "es": "Nivel 5 – Bloqueo de corte interior (Rev2)", "rev": "Rev2 · 11/04/26", "src": "Shear Blocking Int. 5th Level - AMLI West - Rev2.pdf", "imgs": [["5A", "sw5_5A"], ["5B", "sw5_5B"], ["4D", "sw5_4D"], ["4C", "sw5_4C"], ["4B", "sw5_4B"], ["4A", "sw5_4A"], ["3C", "sw5_3C"], ["3B", "sw5_3B"], ["3A", "sw5_3A"]], "note": "Blocking marked in red = can be left out for plumbing (max 20% on W1/W3/W5 walls). Verify the 20% rule per level.", "note_es": "Bloqueo marcado en rojo = se puede omitir por plomería (máx. 20% en paredes W1/W3/W5). Verifica la regla del 20% por nivel."}, {"id": "sw6", "t": "6th Level – Shear Blocking, Interior (Rev2)", "es": "Nivel 6 – Bloqueo de corte interior (Rev2)", "rev": "Rev2 · 11/04/26", "src": "Shear Blocking Int. 6th Level - AMLI West - Rev2.pdf", "imgs": [["5A", "sw6_5A"], ["5B", "sw6_5B"], ["4D", "sw6_4D"], ["4C", "sw6_4C"], ["4B", "sw6_4B"], ["4A", "sw6_4A"], ["3C", "sw6_3C"], ["3B", "sw6_3B"], ["3A", "sw6_3A"]], "note": "Blocking marked in red = can be left out for plumbing (max 20% on W1/W3/W5 walls). Verify the 20% rule per level.", "note_es": "Bloqueo marcado en rojo = se puede omitir por plomería (máx. 20% en paredes W1/W3/W5). Verifica la regla del 20% por nivel."}]}, {"id": "str", "t": "Straps", "es": "Straps (FTAO)", "icon": "≡", "sub": "FTAO strap top & bottom of openings – windows.", "sub_es": "Straps FTAO arriba y abajo de aberturas – ventanas.", "items": [{"id": "str3", "t": "3rd Level – FTAO Window Straps", "es": "Nivel 3 – Straps FTAO en ventanas", "rev": "W-7-10-2026 · update 7.14.26", "src": "FTAO-WINDOW STRAPS (W-7-10-2026).pdf", "imgs": [["Plan", "straps_W7"]], "note": "Typical FTAO strapping detail is on the sheet (bottom right).", "note_es": "El detalle típico de straps FTAO está en la hoja (abajo a la derecha)."}]}], "pending": [["Control lines – units, and levels 4/5/6", "Líneas de control – unidades, y niveles 4/5/6"], ["6th Level layout (overall + areas)", "Layout nivel 6 (overall + áreas)"], ["5th Level layout – Areas A–D", "Layout nivel 5 – Áreas A–D"], ["Shear wall location plan – West", "Plano de ubicación de shear walls – West"], ["Straps for levels 4, 5 and 6", "Straps de los niveles 4, 5 y 6"]]};
+const DATA={"upd": {"n": 2, "date": "Nov 9, 2026", "v": "2.0"}, "sections": [{"id": "cl", "t": "Control Lines", "es": "Líneas de control", "icon": "┼", "sub": "Overall control lines. Measurements: use the overall sheet; unit-level control lines are pending (see Pending).", "sub_es": "Líneas de control overall. Medidas: usa la hoja overall; las de unidades están pendientes (ver Pendiente).", "items": [{"id": "cl3", "t": "3rd Level – Control Lines (Overall)", "es": "Nivel 3 – Líneas de control (Overall)", "rev": "W-3-10-2026", "src": "Control Lines (W-3-10-2026).pdf", "imgs": [["Overall", "cl_W3"]], "note": "Title block: Mueller Phase V West Building, 3rd level.", "note_es": "Cajetín: Mueller Phase V West Building, nivel 3."}]}, {"id": "lay", "t": "Layouts", "es": "Layouts", "icon": "▦", "sub": "Overall and units (Areas A–D), newest level first. Latest revision only.", "sub_es": "Overall y unidades (Áreas A–D), nivel más nuevo primero. Solo la revisión más reciente.", "items": [{"g": "5th Level", "g_es": "Nivel 5", "id": "l5o", "t": "5th Level – Layout (Overall)", "es": "Nivel 5 – Layout (Overall)", "rev": "IFC 9.29.26", "src": "Mueller_V_West_5th_Floor_Layout_Overall_IFC_9_29_26.pdf", "imgs": [["Overall", "L5_overall"]], "note": "Overall: door and window schedules on the left of the sheet.", "note_es": "Overall: tablas de puertas y ventanas a la izquierda de la hoja."}, {"g": "4th Level", "g_es": "Nivel 4", "id": "l4o", "t": "4th Level – Layout (Overall)", "es": "Nivel 4 – Layout (Overall)", "rev": "Rev. 1 · 8.7.26", "src": "Mueller V (West) - 4th Floor - Layout (Overall) - Rev. 1 - 8.7.26.pdf", "imgs": [["Overall", "L4_overall"]], "note": "Overall: door and window schedules on the left of the sheet.", "note_es": "Overall: tablas de puertas y ventanas a la izquierda de la hoja."}, {"g": "4th Level", "g_es": "Nivel 4", "id": "l4u", "t": "4th Level – Layout (Units, Areas A–D)", "es": "Nivel 4 – Layout (Unidades, Áreas A–D)", "rev": "Rev. 1 · 8.7.26", "src": "Mueller V (West) - 4th Floor - Layout (Area A..D) - Rev. 1 - 8.7.26.pdf", "imgs": [["Area A", "L4_A"], ["Area B", "L4_B"], ["Area C", "L4_C"], ["Area D", "L4_D"]], "note": "One sheet per area, same revision.", "note_es": "Una hoja por área, misma revisión."}, {"g": "3rd Level", "g_es": "Nivel 3", "id": "l3o", "t": "3rd Level – Layout (Overall)", "es": "Nivel 3 – Layout (Overall)", "rev": "Rev. 1 · 6/22/26", "src": "Mueller_V_West_3rd_Floor_Layout_Overall_Rev_1_6_22_26.pdf", "imgs": [["Overall", "L3_overall"]], "note": "", "note_es": ""}, {"g": "3rd Level", "g_es": "Nivel 3", "id": "l3u", "t": "3rd Level – Layout (Units, Areas A–D)", "es": "Nivel 3 – Layout (Unidades, Áreas A–D)", "rev": "PRELIMINARY · 3/1/26", "src": "AMLI_Mueller_V_West_3rd_Floor_Layout_Area_A..D_Preliminary_3_1_26.pdf", "imgs": [["Area A", "L3_A"], ["Area B", "L3_B"], ["Area C", "L3_C"], ["Area D", "L3_D"]], "note": "PRELIMINARY – no newer area sheets found. Confirm with the panel designer before using.", "note_es": "PRELIMINAR – no se encontraron hojas de áreas más nuevas. Confirma con el diseñador antes de usar.", "flag": true}]}, {"id": "sw", "t": "Shear Walls", "es": "Shear walls", "icon": "◧", "sub": "Standard notes (S0-2C Rev.2) and interior shear blocking Rev2 for levels 4, 5 and 6.", "sub_es": "Notas estándar (S0-2C Rev.2) y bloqueo de corte interior Rev2 de los niveles 4, 5 y 6.", "items": [{"id": "s02c", "t": "S0-2C – Standard Shearwall Notes & Schedules", "es": "S0-2C – Notas y tablas estándar de shear walls", "rev": "Rev.2", "src": "S0-2C-STANDARD-SHEARWALL-NOTES-AND-SCHEDULES-Rev.2.pdf", "imgs": [["S0-2C", "s02c_rev2"]], "note": "Wall types (W1, W3, W5…), sheathing and nailing schedules. Rev.2 replaces Rev.1.", "note_es": "Tipos de pared (W1, W3, W5…), tablas de sheathing y clavado. Rev.2 reemplaza a Rev.1."}, {"id": "sw4", "t": "4th Level – Shear Blocking, Interior (Rev2)", "es": "Nivel 4 – Bloqueo de corte interior (Rev2)", "rev": "Rev2 · 11/04/26", "src": "Shear Blocking Int. 4th Level - AMLI West - Rev2.pdf", "imgs": [["5A/5B", "sw4_5AB"], ["4D", "sw4_4D"], ["4C", "sw4_4C"], ["4B", "sw4_4B"], ["4A", "sw4_4A"], ["3C", "sw4_3C"], ["3B", "sw4_3B"], ["3A", "sw4_3A"]], "note": "Blocking marked in red = can be left out for plumbing (max 20% on W1/W3/W5 walls). Verify the 20% rule per level.", "note_es": "Bloqueo marcado en rojo = se puede omitir por plomería (máx. 20% en paredes W1/W3/W5). Verifica la regla del 20% por nivel."}, {"id": "sw5", "t": "5th Level – Shear Blocking, Interior (Rev2)", "es": "Nivel 5 – Bloqueo de corte interior (Rev2)", "rev": "Rev2 · 11/04/26", "src": "Shear Blocking Int. 5th Level - AMLI West - Rev2.pdf", "imgs": [["5A", "sw5_5A"], ["5B", "sw5_5B"], ["4D", "sw5_4D"], ["4C", "sw5_4C"], ["4B", "sw5_4B"], ["4A", "sw5_4A"], ["3C", "sw5_3C"], ["3B", "sw5_3B"], ["3A", "sw5_3A"]], "note": "Blocking marked in red = can be left out for plumbing (max 20% on W1/W3/W5 walls). Verify the 20% rule per level.", "note_es": "Bloqueo marcado en rojo = se puede omitir por plomería (máx. 20% en paredes W1/W3/W5). Verifica la regla del 20% por nivel."}, {"id": "sw6", "t": "6th Level – Shear Blocking, Interior (Rev2)", "es": "Nivel 6 – Bloqueo de corte interior (Rev2)", "rev": "Rev2 · 11/04/26", "src": "Shear Blocking Int. 6th Level - AMLI West - Rev2.pdf", "imgs": [["5A", "sw6_5A"], ["5B", "sw6_5B"], ["4D", "sw6_4D"], ["4C", "sw6_4C"], ["4B", "sw6_4B"], ["4A", "sw6_4A"], ["3C", "sw6_3C"], ["3B", "sw6_3B"], ["3A", "sw6_3A"]], "note": "Blocking marked in red = can be left out for plumbing (max 20% on W1/W3/W5 walls). Verify the 20% rule per level.", "note_es": "Bloqueo marcado en rojo = se puede omitir por plomería (máx. 20% en paredes W1/W3/W5). Verifica la regla del 20% por nivel."}]}, {"id": "str", "t": "Straps", "es": "Straps (FTAO)", "icon": "≡", "sub": "FTAO strap top & bottom of openings – windows.", "sub_es": "Straps FTAO arriba y abajo de aberturas – ventanas.", "items": [{"id": "str3", "t": "3rd Level – FTAO Window Straps", "es": "Nivel 3 – Straps FTAO en ventanas", "rev": "W-7-10-2026 · update 7.14.26", "src": "FTAO-WINDOW STRAPS (W-7-10-2026).pdf", "imgs": [["Plan", "straps_W7"], ["Install detail", "straps_W7_detail"]], "note": "Install detail tab = the typical FTAO strapping detail from this sheet. Per its notes: straps go on the EXTERIOR over the structural panel sheathing; install as close to the opening as possible (offset max 2 in. if needed); add blocking as required. The engineer sheet governs.", "note_es": "Pestaña Install detail = el detalle típico de straps FTAO de esta hoja. Según sus notas: los straps van en el EXTERIOR sobre el sheathing estructural; instálalos lo más cerca posible de la abertura (desfase máx. 2 pulg. si hace falta); agrega blocking según se requiera. Manda la hoja del ingeniero.", "cl": ["Views", "Vistas"]}]}], "pending": [["Overall control lines and overall wall layouts split into sections (section structure per level needed)", "Líneas de control y layouts de muros overall divididos en secciones (falta la estructura de secciones por nivel)"], ["Control lines – by unit, and levels 4/5/6", "Líneas de control – por unidad, y niveles 4/5/6"], ["Wall Panel Layout – all levels (sheet to be confirmed)", "Layout de paneles de muro – todos los niveles (hoja por confirmar)"], ["Sill plate connection / shear wall location plan – West", "Conexión de sill plate / plano de ubicación de shear walls – West"], ["Layout level 6 (overall + areas) and level 5 Areas A–D", "Layout nivel 6 (overall + áreas) y nivel 5 Áreas A–D"], ["Window straps for levels 4, 5 and 6", "Straps de ventanas de los niveles 4, 5 y 6"], ["All sheets for level 7", "Todas las hojas del nivel 7"], ["Millwork by level and section", "Millwork por nivel y sección"]], "versions": [{"v": "2.0", "n": 2, "date": "Nov 9, 2026", "items": [["Home now has Level 3–7 buttons; each level shows its formats.", "Inicio con botones de Nivel 3–7; cada nivel muestra sus formatos."], ["Full plan plus section buttons under each sheet.", "Plano completo y botones de sección debajo de cada hoja."], ["Version button (top right) with green / yellow / red dot.", "Botón de versión (arriba a la derecha) con punto verde / amarillo / rojo."], ["Window straps: install detail tab (level 3).", "Straps de ventanas: pestaña de detalle de instalación (nivel 3)."], ["Control lines and wall layout: section buttons are marked PENDING until the section sheets arrive.", "Líneas de control y layout de muros: los botones de sección dicen PENDING hasta que lleguen las hojas por sección."]]}, {"v": "1.2", "n": 1, "date": "Nov 7, 2026", "items": [["HOW IT WORKS page (5 steps).", "Página CÓMO FUNCIONA (5 pasos)."]]}, {"v": "1.1", "n": 1, "date": "Nov 7, 2026", "items": [["DOWNLOAD APP button.", "Botón DESCARGAR APP."]]}, {"v": "1.0", "n": 1, "date": "Nov 6, 2026", "items": [["First release: Control Lines, Layouts, Shear Walls, Straps (West, latest only).", "Primera versión: Control Lines, Layouts, Shear Walls, Straps (West, solo lo más reciente)."]]}]};
 const SEC=Object.fromEntries(DATA.sections.map(s=>[s.id,s]));
 const ITEM={}; DATA.sections.forEach(s=>s.items.forEach(i=>{ITEM[i.id]=Object.assign({sec:s.id},i);}));
 function imgSrc(k){ return 'img/'+k+'.webp'; }
@@ -185,21 +235,23 @@ function makeViewer(el, srcKey, opts){
 }
 function go(h){ if(location.hash===h) render(); else location.hash=h; }
 window.addEventListener('hashchange',()=>{ render(); window.scrollTo(0,0); });
-function parseRoute(){ const h=(location.hash||'#home').slice(1).split('--'); return {view:h[0]||'home',arg:h[1]||null,tab:parseInt(h[2]||'0',10)||0}; }
+function parseRoute(){ const h=(location.hash||'#home').slice(1).split('--'); return {view:h[0]||'home',arg:h[1]||null,tab:parseInt(h[2]||'0',10)||0,lvl:parseInt(h[3]||'0',10)||0}; }
 function header(back,t1,t2){ const U=DATA.upd;
-  return `<div class="hdr"><div class="updbar"><div class="upd">UPDATE ${U.n}<i>· ${esc(U.date)}</i></div></div><div class="row"><img class="logo" src="header-mark.png" alt="NF">${back?`<button class="back" onclick="${back.fn}">◀ ${esc(back.label)}</button>`:''}<div class="ttl"><div class="t1">${t1}</div><div class="t2">${t2}</div></div></div><div class="stripe"></div></div>`; }
-function setBB(w){ for(const k of ['home','cl','lay','sw','str']){ const b=document.getElementById('bb-'+k); if(b) b.classList.toggle('on',k===w); } }
+  return `<div class="hdr"><div class="updbar"><button class="upd" onclick="go('#ver')" aria-label="Version and updates">UPDATE ${U.n}<i>· ${esc(U.date)}</i><i class="vdot ${(window.NFV||{st:'y'}).st}"></i></button></div><div class="row"><img class="logo" src="header-mark.png" alt="NF">${back?`<button class="back" onclick="${back.fn}">◀ ${esc(back.label)}</button>`:''}<div class="ttl"><div class="t1">${t1}</div><div class="t2">${t2}</div></div></div><div class="stripe"></div></div>`; }
+function setBB(w){ for(const k of ['home','l3','l4','l5','l6','l7']){ const b=document.getElementById('bb-'+k); if(b) b.classList.toggle('on',k===w); } }
 function render(){ const r=parseRoute(), app=document.getElementById('app');
   if(r.view==='sec'&&SEC[r.arg]) renderSec(app,SEC[r.arg]);
-  else if(r.view==='item'&&ITEM[r.arg]) renderItem(app,ITEM[r.arg],r.tab);
+  else if(r.view==='item'&&ITEM[r.arg]) renderItem(app,ITEM[r.arg],r.tab,r.lvl);
+  else if(r.view==='lvl'&&LEVELS[r.arg]) renderLevel(app,+r.arg);
+  else if(r.view==='ver') renderVer(app);
   else if(r.view==='how') renderHow(app);
   else renderHome(app); }
 function renderHome(app){ setBB('home');
   const n=DATA.sections.reduce((a,s)=>a+s.items.length,0);
   app.innerHTML=header(null,'NF WALLS','AMLI Mueller V (West) · Walls') + `<div class="wrap">
-  <div class="card title-card"><img src="header-logo.png" alt="National Framing" style="height:46px;width:auto;border-radius:8px;margin-bottom:10px;display:block"><div class="big">NF WALLS</div><div class="sub">AMLI Mueller V (West) – Control lines, layouts, shear walls and straps. Latest versions only.<br>Líneas de control, layouts, shear walls y straps. Solo las versiones más recientes.</div><div class="meta">${n} sheets · National Framing · ${esc(DATA.upd.date)}</div></div>
+  <div class="card title-card"><img src="header-logo.png" alt="National Framing" style="height:46px;width:auto;border-radius:8px;margin-bottom:10px;display:block"><div class="big">NF WALLS</div><div class="sub">AMLI Mueller V (West) – Control lines, layouts, shear walls and straps, by level (3–7). Latest versions only.<br>Líneas de control, layouts, shear walls y straps, por nivel (3–7). Solo las versiones más recientes.</div><div class="meta">${n} sheets · National Framing · ${esc(DATA.upd.date)}</div></div>
   ${installCard()}${howCard()}
-  <div class="card"><h2>Sections <small>Secciones</small></h2><div class="grid">${DATA.sections.map(s=>`<button class="sbtn" onclick="go('#sec--${s.id}')"><span class="ic">${s.icon}</span><span class="n">${esc(s.t)}</span><span class="b">${esc(s.es)} · ${s.items.length} ${s.items.length>1?'sheets':'sheet'}</span></button>`).join('')}</div></div>
+  ${levelsCard()}
   <div class="card"><h2>Pending <small>Pendiente – not in the app yet / todavía no está en la app</small></h2>${DATA.pending.map(p=>`<div class="pend"><span class="tag">PENDING</span><div><b>${esc(p[0])}</b><span class="es">${esc(p[1])}</span></div></div>`).join('')}</div>
   <div class="foot">Phone app · works offline once opened / funciona sin internet después de abrirla.</div></div>`; }
 function itemCard(it){ return `<button class="item" onclick="go('#item--${it.id}')"><div class="body"><div class="id">${esc(it.t)}</div><div class="nm">${esc(it.es)}</div><span class="rev ${it.flag?'flag':''}">${esc(it.rev)}</span></div><span class="go">›</span></button>`; }
@@ -207,19 +259,6 @@ function renderSec(app,s){ setBB(s.id);
   let html='', last=null;
   s.items.forEach(it=>{ if(it.g && it.g!==last){ html+=`<div class="fam">${esc(it.g)} · ${esc(it.g_es)}</div>`; last=it.g; } html+=itemCard(it); });
   app.innerHTML=header({label:'Home',fn:"go('#home')"},esc(s.t),esc(s.es)) + `<div class="wrap"><div class="card"><h2>${esc(s.t)} <small>${esc(s.es)}</small></h2><div class="hint" style="margin:0">${esc(s.sub)}<br>${esc(s.sub_es)}</div></div>${html}</div>`; }
-function renderItem(app,it,tab){ const s=SEC[it.sec]; setBB(s.id);
-  const list=s.items, i=list.findIndex(x=>x.id===it.id), prev=list[i-1], next=list[i+1];
-  const imgs=it.imgs; tab=Math.min(Math.max(tab,0),imgs.length-1);
-  app.innerHTML=header({label:s.t,fn:`go('#sec--${s.id}')`},esc(it.t),esc(it.rev)) + `<div class="wrap">
-  <div class="card"><h2>${esc(it.t)} <small>${esc(it.es)}</small></h2>
-  <div class="meta2"><b>${esc(it.rev)}</b> · ${esc(it.src)}</div>
-  ${imgs.length>1?`<div class="tabs">${imgs.map((m,k)=>`<button class="tab ${k===tab?'on':''}" onclick="go('#item--${it.id}--${k}')">${esc(m[0])}</button>`).join('')}</div>`:''}
-  <div class="viewer" id="v"></div>
-  <div class="hint">Pinch to zoom, drag to move, double-tap to zoom, ⤢ for full height. / Pellizca para acercar, arrastra para mover, doble toque para acercar, ⤢ pantalla alta.</div>
-  ${it.note?`<div class="hint"><b>${esc(it.note)}</b><br>${esc(it.note_es)}</div>`:''}</div>
-  <div class="nav2">${prev?`<button class="btn sec" onclick="go('#item--${prev.id}')">‹ Prev</button>`:''}${next?`<button class="btn sec" onclick="go('#item--${next.id}')">Next ›</button>`:''}</div></div>`;
-  makeViewer(document.getElementById('v'),imgs[tab][1],{}); }
-
 /* ---------- install button ---------- */
 window._nfDP=null;
 window.addEventListener('beforeinstallprompt',e=>{ e.preventDefault(); window._nfDP=e; });
@@ -255,12 +294,99 @@ function renderHow(app){ setBB('home');
   app.innerHTML=header({label:'Home',fn:"go('#home')"},'How it works','Cómo funciona') + `<div class="wrap how">
   <div class="card"><h2>5 simple steps <small>5 pasos simples</small></h2><div class="hint" style="margin:0">Red boxes show where to tap. / Los recuadros rojos muestran dónde tocar.</div></div>
   ${st(1,'Install the app','Instala la app','Open the link in <b>Safari</b> (iPhone) or <b>Chrome</b> (Android) – not inside Telegram. Tap <b>DOWNLOAD APP</b> and follow the steps. The blue NF WALLS icon appears on your home screen.','Abre el enlace en <b>Safari</b> (iPhone) o <b>Chrome</b> (Android) – no dentro de Telegram. Toca <b>DESCARGAR APP</b> y sigue los pasos. El ícono azul NF WALLS aparece en tu pantalla de inicio.','how1')}
-  ${st(2,'Pick a section','Elige una sección','Control Lines, Layouts, Shear Walls or Straps.','Líneas de control, Layouts, Shear walls o Straps.','how2')}
-  ${st(3,'Tap a sheet','Toca una hoja','Each card shows the level and the <b>latest revision</b> only.','Cada tarjeta muestra el nivel y solo la <b>revisión más reciente</b>.','how3')}
+  ${st(2,'Pick a level','Elige un nivel','Tap Level 3, 4, 5, 6 or 7. Each level lists its formats: Control Lines, Wall Layout, Wall Panel Layout, Shear Walls, Window Straps, Millwork.','Toca Nivel 3, 4, 5, 6 o 7. Cada nivel muestra sus formatos: Control Lines, Wall Layout, Wall Panel Layout, Shear Walls, Window Straps, Millwork.','how2')}
+  ${st(3,'Open the full plan or a section','Abre el plano completo o una sección','Tap the sheet card for the <b>full plan</b>. Under it, tap <b>A, B, C…</b> to jump to one section. Each card shows only the <b>latest revision</b>.','Toca la tarjeta para el <b>plano completo</b>. Debajo, toca <b>A, B, C…</b> para ir a una sección. Cada tarjeta muestra solo la <b>revisión más reciente</b>.','how3')}
   ${st(4,'Zoom and move','Acerca y mueve','<b>Pinch</b> to zoom, <b>drag</b> to move, <b>double-tap</b> to zoom in. Use <b>FIT</b> to see the full sheet. Use the tabs when a sheet has several areas.','<b>Pellizca</b> para acercar, <b>arrastra</b> para mover, <b>doble toque</b> para acercar. <b>FIT</b> muestra la hoja completa. Usa las pestañas cuando hay varias áreas.','how4')}
   ${st(5,'Use it with no signal','Úsala sin señal','Open the app <b>once with signal</b> and wait for Home. After that it works offline. Test: turn on airplane mode and open a sheet.','Abre la app <b>una vez con señal</b> y espera a que cargue Home. Después funciona sin internet. Prueba: activa modo avión y abre una hoja.',null,'<div class="air"><span>✈</span>Airplane mode ON – still works<br><small style="font-weight:600;color:var(--muted)">Modo avión – sigue funcionando</small></div>')}
+  <div class="card"><h2>UPDATE button <small>Botón de versión (arriba a la derecha)</small></h2><div class="hint" style="margin:0">Tap <b>UPDATE</b> at the top right. <b>Green</b> dot = latest version. <b>Yellow</b> = cannot check (no signal). <b>Red</b> = new version, tap UPDATE NOW. / Toca <b>UPDATE</b> arriba a la derecha. Punto <b>verde</b> = última versión. <b>Amarillo</b> = no se puede verificar (sin señal). <b>Rojo</b> = versión nueva, toca ACTUALIZAR.</div></div>
   <div class="card"><h2>PENDING <small>Pendiente</small></h2><div class="hint" style="margin:0">A card marked <b>PENDING</b> means that sheet is not in the app yet. / Una tarjeta <b>PENDING</b> significa que esa hoja todavía no está en la app.</div></div>
   <button class="btn" onclick="go('#home')">◀ Home · Inicio</button></div>`; }
+
+
+/* ---------- update 2 ---------- */
+const NF_BUILD=200;
+const SLOTS=[['cl','Control Lines','Líneas de control'],['lay','Wall Layout','Layout de muros'],['pan','Wall Panel Layout','Layout de paneles de muro'],['sw','Shear Walls · Sill Plate','Shear walls · Sill plate'],['str','Window Straps (FTAO)','Straps de ventanas (FTAO)'],['mw','Millwork','Millwork']];
+const LEVELS={3:{cl:['cl3'],lay:['l3o','l3u'],sw:['s02c'],str:['str3']},4:{lay:['l4o','l4u'],sw:['s02c','sw4']},5:{lay:['l5o'],sw:['s02c','sw5']},6:{sw:['s02c','sw6']},7:{sw:['s02c']}};
+const LGEN=['s02c'];
+const LXTRA={
+ '3-cl':[['Control lines by unit (sections)','Líneas de control por unidad (secciones)']],
+ '3-sw':[['Sill plate connection / shear wall location plan','Conexión de sill plate / plano de ubicación de shear walls']],
+ '4-sw':[['Sill plate connection / shear wall location plan','Conexión de sill plate / plano de ubicación de shear walls']],
+ '5-sw':[['Sill plate connection / shear wall location plan','Conexión de sill plate / plano de ubicación de shear walls']],
+ '6-sw':[['Sill plate connection / shear wall location plan','Conexión de sill plate / plano de ubicación de shear walls']],
+ '7-sw':[['Sill plate connection / shear wall location plan','Conexión de sill plate / plano de ubicación de shear walls']],
+ /* ---------- update 2 sections ---------- */
+  '3-lay':[['Overall layout – split by section','Layout overall – dividido por sección']],
+  '4-lay':[['Overall layout – split by section','Layout overall – dividido por sección']],
+  '6-lay':[['Layout – overall + by section','Layout – overall + por sección']],
+  '7-lay':[['Layout – overall + by section','Layout – overall + por sección']],
+  '4-cl':[['Control lines – overall + by section','Líneas de control – overall + por sección']],
+  '5-cl':[['Control lines – overall + by section','Líneas de control – overall + por sección']],
+  '6-cl':[['Control lines – overall + by section','Líneas de control – overall + por sección']],
+  '7-cl':[['Control lines – overall + by section','Líneas de control – overall + por sección']],
+  '5-lay':[['Layout Areas A–D','Layout Áreas A–D'],['Overall layout – split by section','Layout overall – dividido por sección']]
+};
+function lvSlots(L){ return SLOTS.map(s=>({k:s[0],t:s[1],es:s[2],ids:(LEVELS[L]||{})[s[0]]||[]})); }
+function lvFlat(L){ const a=[]; lvSlots(L).forEach(s=>s.ids.forEach(i=>{ if(a.indexOf(i)<0) a.push(i); })); return a; }
+function lvCount(L){ return lvSlots(L).filter(s=>s.ids.some(i=>LGEN.indexOf(i)<0)).length; }
+function lvSheets(L){ return lvFlat(L).filter(i=>LGEN.indexOf(i)<0).length; }
+function pendRow(en,es){ return `<div class="pend"><span class="tag">PENDING</span><div><b>${esc(en)}</b><span class="es">${esc(es)}</span></div></div>`; }
+
+/* version / update indicator: g = latest, y = cannot check (no signal), r = newer version available */
+window.NFV={st:'y',latest:null,at:null};
+function vdot(){ return `<i class="vdot ${NFV.st}"></i>`; }
+function setDots(){ document.querySelectorAll('.hdr .upd .vdot').forEach(d=>{ d.className='vdot '+NFV.st; }); const s=document.getElementById('vstat'); if(s) s.innerHTML=verStatus(); }
+function checkVer(){ return fetch('version.json?t='+Date.now(),{cache:'no-store'}).then(r=>{ if(!r.ok) throw new Error('x'); return r.json(); }).then(j=>{ NFV.latest=j; NFV.st=(j.b>NF_BUILD)?'r':'g'; NFV.at=Date.now(); try{ localStorage.setItem('nfwalls_chk',String(NFV.at)); }catch(e){} }).catch(()=>{ NFV.st='y'; }).then(setDots); }
+window.addEventListener('online',checkVer);
+document.addEventListener('visibilitychange',()=>{ if(!document.hidden) checkVer(); });
+function lastChk(){ let t=NFV.at; if(!t){ try{ t=parseInt(localStorage.getItem('nfwalls_chk')||'0',10)||null; }catch(e){} } return t?new Date(t).toLocaleString():null; }
+function verStatus(){
+  const U=DATA.upd, lc=lastChk();
+  if(NFV.st==='g') return `<div class="big"><i class="vdot g"></i>Up to date · Actualizada</div><p>You have the latest version (${esc(U.v)}).</p><p><i>Tienes la última versión (${esc(U.v)}).</i></p>`;
+  if(NFV.st==='r') return `<div class="big"><i class="vdot r"></i>New version available · Hay versión nueva</div><p>Version ${esc(NFV.latest&&NFV.latest.v||'')} is ready. You have ${esc(U.v)}. Tap UPDATE with signal and keep the app open.</p><p><i>La versión ${esc(NFV.latest&&NFV.latest.v||'')} está lista. Tienes la ${esc(U.v)}. Toca ACTUALIZAR con señal y deja la app abierta.</i></p><button class="ubtn" id="nfUpd" onclick="nfUpdate()">UPDATE NOW · ACTUALIZAR</button>`;
+  return `<div class="big"><i class="vdot y"></i>Cannot check now · No se puede verificar</div><p>No signal, so the app cannot tell if there is a newer version. You have version ${esc(U.v)}. It still works offline.${lc?' Last check: '+esc(lc)+'.':''}</p><p><i>Sin señal, la app no puede saber si hay versión nueva. Tienes la versión ${esc(U.v)}. Sigue funcionando sin internet.${lc?' Última revisión: '+esc(lc)+'.':''}</i></p>`; }
+function nfUpdate(){ const b=document.getElementById('nfUpd'); if(b){ b.disabled=true; b.textContent='Updating… keep the app open with signal · Actualizando… deja la app abierta con señal'; }
+  if('serviceWorker' in navigator){ navigator.serviceWorker.getRegistration().then(r=>{ if(r) return r.update(); }).catch(()=>{}); setTimeout(()=>{ const x=document.getElementById('nfUpd'); if(x){ x.disabled=false; x.textContent='Try again · Intentar otra vez'; } },90000); } else { location.reload(); } }
+function renderVer(app){ setBB('home');
+  const vs=(DATA.versions||[]).slice(0,10);
+  app.innerHTML=header({label:'Home',fn:"go('#home')"},'Versions','Versiones') + `<div class="wrap">
+  <div class="vstat" id="vstat">${verStatus()}</div>
+  <div class="card"><h2>Dot colors <small>Colores del punto</small></h2><div class="vkey"><div><i class="vdot g"></i><span><b>Green</b> – latest version · <i>última versión</i></span></div><div><i class="vdot y"></i><span><b>Yellow</b> – cannot check (no signal) · <i>no se puede verificar (sin señal)</i></span></div><div><i class="vdot r"></i><span><b>Red</b> – newer version available, tap UPDATE · <i>hay versión nueva, toca ACTUALIZAR</i></span></div></div></div>
+  <div class="card"><h2>Last ${vs.length} versions <small>Últimas ${vs.length} versiones</small></h2></div>
+  ${vs.map(v=>`<div class="vrow ${v.v===DATA.upd.v?'cur':''}"><div class="vh"><span class="vn">v${esc(v.v)} · Update ${esc(v.n)}</span><span class="vd">${esc(v.date)}</span>${v.v===DATA.upd.v?'<span class="me">YOU HAVE THIS · TIENES ESTA</span>':''}</div><ul>${v.items.map(i=>`<li>${esc(i[0])}<br><i>${esc(i[1])}</i></li>`).join('')}</ul></div>`).join('')}
+  <button class="btn" onclick="go('#home')">◀ Home · Inicio</button></div>`;
+  checkVer(); }
+
+function lvItem(id,L){ const it=ITEM[id]; const cl=it.cl||['Sections','Secciones'];
+  const chips=it.imgs.length>1?`<div class="chips"><span>${cl[0]} · ${cl[1]}</span>${it.imgs.map((m,k)=>`<button class="chip" onclick="go('#item--${id}--${k}--${L}')">${esc(m[0])}</button>`).join('')}</div>`:'';
+  return `<div class="lvit"><button class="item" onclick="go('#item--${id}--0--${L}')"><div class="body"><div class="id">${esc(it.t)}</div><div class="nm">${esc(it.es)}</div><span class="rev ${it.flag?'flag':''}">${esc(it.rev)}</span>${LGEN.indexOf(id)>=0?'<span class="all">All levels · Todos los niveles</span>':''}</div><span class="go">›</span></button>${chips}</div>`; }
+function slotCard(L,s){ const ex=LXTRA[L+'-'+s.k]||[];
+  const head=`<div class="sh"><div class="s1">${esc(s.t)}<small>${esc(s.es)}</small></div><span class="bdg ${s.ids.length?'ok':'pe'}">${s.ids.length?(s.ids.length+(s.ids.length>1?' sheets':' sheet')):'PENDING'}</span></div>`;
+  let body=s.ids.map(id=>lvItem(id,L)).join('')+ex.map(p=>pendRow(p[0],p[1])).join('');
+  if(!s.ids.length&&!ex.length) body=pendRow('Not in the app yet','Todavía no está en la app');
+  return `<div class="slot">${head}${body}</div>`; }
+function renderLevel(app,L){ setBB('l'+L);
+  const n=lvCount(L), tot=SLOTS.length;
+  app.innerHTML=header({label:'Home',fn:"go('#home')"},'Level '+L,'Nivel '+L+' · AMLI Mueller V (West)') + `<div class="wrap">
+  <div class="card"><h2>Level ${L} <small>Nivel ${L}</small></h2><div class="hint" style="margin:0">${n} of ${tot} formats have sheets. Open the <b>full plan</b>, or jump to one <b>section</b> with the buttons under each sheet.<br>${n} de ${tot} formatos tienen hojas. Abre el <b>plano completo</b> o salta a una <b>sección</b> con los botones debajo de cada hoja.</div></div>
+  ${lvSlots(L).map(s=>slotCard(L,s)).join('')}</div>`; }
+function levelsCard(){ return `<div class="card"><h2>Levels <small>Niveles – pick one / elige uno</small></h2>${[3,4,5,6,7].map(L=>{ const n=lvCount(L), sh=lvSheets(L); return `<button class="lvb ${sh?'':'empty'}" onclick="go('#lvl--${L}')"><span class="num">${L}</span><span class="tx"><span class="n">Level ${L} · Nivel ${L}</span><br><span class="b">${n} of ${SLOTS.length} formats · ${sh} ${sh===1?'sheet':'sheets'}${sh?'':' – PENDING'}</span></span><span class="go">›</span></button>`; }).join('')}
+  <div class="hint" style="margin:6px 2px 6px 2px"><b>Browse by type · Ver por tipo</b></div><div class="typebar">${DATA.sections.map(s=>`<button onclick="go('#sec--${s.id}')">${esc(s.t)}</button>`).join('')}</div></div>`; }
+function renderItem(app,it,tab,L){ const s=SEC[it.sec]; const lv=(L&&LEVELS[L])?L:0; setBB(lv?'l'+lv:s.id);
+  let list,back; if(lv){ list=lvFlat(lv).map(i=>ITEM[i]); back={label:'Level '+lv,fn:`go('#lvl--${lv}')`}; } else { list=s.items; back={label:s.t,fn:`go('#sec--${s.id}')`}; }
+  const q=lv?`--${lv}`:'';
+  const i=list.findIndex(x=>x.id===it.id), prev=list[i-1], next=list[i+1];
+  const imgs=it.imgs; tab=Math.min(Math.max(tab,0),imgs.length-1); const cl=it.cl||['Sections','Secciones'];
+  app.innerHTML=header(back,esc(it.t),esc(it.rev)) + `<div class="wrap">
+  <div class="card"><h2>${esc(it.t)} <small>${esc(it.es)}</small></h2>
+  <div class="meta2"><b>${esc(it.rev)}</b> · ${esc(it.src)}</div>
+  ${imgs.length>1?`<div class="tabs">${imgs.map((m,k)=>`<button class="tab ${k===tab?'on':''}" onclick="go('#item--${it.id}--${k}${q}')">${esc(m[0])}</button>`).join('')}</div>`:''}
+  <div class="viewer" id="v"></div>
+  <div class="hint">Pinch to zoom, drag to move, double-tap to zoom, ⤢ for full height. / Pellizca para acercar, arrastra para mover, doble toque para acercar, ⤢ pantalla alta.</div>
+  ${it.note?`<div class="hint"><b>${esc(it.note)}</b><br>${esc(it.note_es)}</div>`:''}</div>
+  <div class="nav2">${prev?`<button class="btn sec" onclick="go('#item--${prev.id}--0${q}')">‹ Prev</button>`:''}${next?`<button class="btn sec" onclick="go('#item--${next.id}--0${q}')">Next ›</button>`:''}</div></div>`;
+  makeViewer(document.getElementById('v'),imgs[tab][1],{}); }
+checkVer();
 
 render();
 </script>
